@@ -11,6 +11,7 @@ import Foundation
 /// Defines the Network service errors.
 enum NetworkError: Error {
     case parsing(description: String)
+    
     case network(description: String)
 
     /// When netowrk cannot be established
