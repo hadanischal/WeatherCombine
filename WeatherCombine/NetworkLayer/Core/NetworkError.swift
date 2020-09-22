@@ -1,6 +1,6 @@
 //
 //  NetworkError.swift
-//  ReduxAnime
+//  WeatherCombine
 //
 //  Created by Nischal Hada on 21/6/20.
 //  Copyright © 2020 Nischal Hada. All rights reserved.
@@ -11,7 +11,7 @@ import Foundation
 /// Defines the Network service errors.
 enum NetworkError: Error {
     case parsing(description: String)
-    
+
     case network(description: String)
 
     /// When netowrk cannot be established
