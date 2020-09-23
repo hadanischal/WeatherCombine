@@ -48,10 +48,10 @@ enum MainEnum: String, Codable {
     case rain = "Rain"
 }
 
-//enum Description: String, Codable {
+// enum Description: String, Codable {
 //    case clearSky = "clear sky"
 //    case fewClouds = "few clouds"
 //    case lightRain = "light rain"
 //    case moderateRain = "moderate rain"
 //    case scatteredClouds = "scattered clouds"
-//}
+// }
