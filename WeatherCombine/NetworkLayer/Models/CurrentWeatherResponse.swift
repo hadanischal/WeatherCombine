@@ -11,18 +11,19 @@ import Foundation
 // MARK: - CurrentWeatherResponse
 
 struct CurrentWeatherResponse: Codable {
-    let dt: Int
+    let dt, id: Int
     let main: Main
-    let weather: [Weather]
-    let clouds: Clouds
-    let wind: Wind
-    let visibility: Int
     let coord: Coord
-    let base: String
+    let weather: [Weather]
     let sys: Sys1
-    let timezone, id: Int
+    let wind: Wind
+    let clouds: Clouds
+    let visibility: Int
     let name: String
-    let cod: Int
+
+    let base: String?
+    let timezone: Int?
+    let cod: Int?
 }
 
 // MARK: - Main
@@ -43,7 +44,7 @@ struct Main: Codable {
 // MARK: - Sys
 
 struct Sys1: Codable {
-    let type, id: Int
+    let type, id: Int?
     let country: String
-    let sunrise, sunset: Int
+    let timezone, sunrise, sunset: Int?
 }
