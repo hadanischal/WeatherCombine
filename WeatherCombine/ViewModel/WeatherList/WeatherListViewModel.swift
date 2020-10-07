@@ -23,7 +23,7 @@ final class WeatherListViewModel: ObservableObject {
         self.weatherFetcher = weatherFetcher
         $cityIDs
             .sink(receiveValue: fetchWeather(forCities:))
-            .store(in: &disposables)j
+            .store(in: &disposables)
     }
 
     func fetchWeather(forCities cities: [String]) {
