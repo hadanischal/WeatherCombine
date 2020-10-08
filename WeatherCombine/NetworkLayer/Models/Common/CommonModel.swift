@@ -31,7 +31,7 @@ struct Wind: Codable {
 
 struct Weather: Codable {
     let id: Int
-    let main: MainEnum
+    let main: String
     let weatherDescription: String
     let icon: String
 
@@ -41,17 +41,3 @@ struct Weather: Codable {
         case icon
     }
 }
-
-enum MainEnum: String, Codable {
-    case clear = "Clear"
-    case clouds = "Clouds"
-    case rain = "Rain"
-}
-
-// enum Description: String, Codable {
-//    case clearSky = "clear sky"
-//    case fewClouds = "few clouds"
-//    case lightRain = "light rain"
-//    case moderateRain = "moderate rain"
-//    case scatteredClouds = "scattered clouds"
-// }

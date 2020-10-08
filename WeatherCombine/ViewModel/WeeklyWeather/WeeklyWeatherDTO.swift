@@ -23,7 +23,7 @@ struct WeeklyWeatherDTO: Identifiable {
         self.day = dayFormatter.string(from: item.date)
         self.month = monthFormatter.string(from: item.date)
         self.temperature = item.main.temp.roundSinglePlace
-        self.title = item.weather.first?.main.rawValue ?? ""
+        self.title = item.weather.first?.main ?? ""
         self.fullDescription = item.weather.first?.weatherDescription ?? ""
     }
 }
