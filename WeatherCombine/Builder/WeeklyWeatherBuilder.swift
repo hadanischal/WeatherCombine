@@ -13,4 +13,8 @@ enum WeeklyWeatherBuilder {
         let viewModel = CurrentWeatherViewModel(city: city)
         return CurrentWeatherView(viewModel: viewModel)
     }
+
+    static var weeklyWeatherView: some View {
+        return WeeklyWeatherView()
+    }
 }
