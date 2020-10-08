@@ -9,6 +9,7 @@
 import Foundation
 
 // MARK: - CityWeatherListResponse
+
 struct CityWeatherListResponse: Codable {
     var count: Int
     var weatherList: [CurrentWeatherResponse]

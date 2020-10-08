@@ -13,3 +13,13 @@ extension WeeklyWeatherViewModel {
         return WeeklyWeatherBuilder.makeCurrentWeatherView(withCity: city)
     }
 }
+
+extension WeatherListViewModel {
+    func currentWeatherView(_ city: String) -> some View {
+        return WeeklyWeatherBuilder.makeCurrentWeatherView(withCity: city)
+    }
+
+    func weeklyWeatherView() -> some View {
+        return WeeklyWeatherBuilder.weeklyWeatherView
+    }
+}
