@@ -18,7 +18,9 @@ protocol WeatherListFetchable: AnyObject {
     func getCurrentWeather(forCities cityIds: [String]) -> AnyPublisher<[CurrentWeatherResponse], NetworkError>
 }
 
-final class WeatherNetworking: WeatherFetchable, WeatherListFetchable {
+typealias WeatherNetworkHandler = WeatherFetchable & WeatherListFetchable
+
+final class WeatherNetworking: WeatherNetworkHandler {
     private let networkService: NetworkServiceHandling
 
     init(networkService: NetworkServiceHandling = NetworkService()) {

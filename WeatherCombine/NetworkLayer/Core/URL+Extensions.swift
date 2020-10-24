@@ -17,6 +17,7 @@ extension URL {
 
 struct OpenWeatherAPI {
     enum ApiConfig {
+        static let host = "api.openweathermap.org"
         static let serverPath: String = baseURL + path
         static let baseURL = "https://api.openweathermap.org/"
         static let path = "data/2.5/"

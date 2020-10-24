@@ -16,24 +16,22 @@ struct WeeklyWeatherView: View {
     }
 
     var body: some View {
-        NavigationView {
-            List {
-                searchField
-                if viewModel.dataSource.isEmpty {
-                    emptySection
-                } else {
-                    cityHourlyWeatherSection
-                    forecastSection
-                }
+        List {
+            searchField
+            if viewModel.dataSource.isEmpty {
+                emptySection
+            } else {
+                cityHourlyWeatherSection
+                forecastSection
             }
-            .listStyle(GroupedListStyle())
-            .navigationBarTitle("Weather ⛅️")
         }
+        .listStyle(GroupedListStyle())
+        .navigationBarTitle("Weather ⛅️")
     }
 
     private var searchField: some View {
         HStack(alignment: .center) {
-            TextField("e.g. Cupertino", text: $viewModel.city)
+            TextField("e.g. Cupertino", text: $viewModel.cityName)
         }
     }
 
@@ -47,7 +45,7 @@ struct WeeklyWeatherView: View {
         Section {
             NavigationLink(destination: viewModel.currentWeatherView) {
                 VStack(alignment: .leading) {
-                    Text(viewModel.city)
+                    Text(viewModel.cityName)
                     Text("Weather today")
                         .font(.caption)
                         .foregroundColor(.gray)
@@ -76,3 +74,11 @@ private var forecastSection: some View {
     }
 }
  */
+
+struct WeeklyWeatherView_Previews: PreviewProvider {
+    static let previewViewModel = WeeklyWeatherViewModel(weatherFetcher: WeatherNetworkingPreviewHelpers())
+    static var previews: some View {
+        previewViewModel.fetchWeather(forCity: "stub")
+       return WeeklyWeatherView(viewModel: previewViewModel)
+    }
+}

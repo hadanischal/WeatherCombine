@@ -10,8 +10,8 @@ import Combine
 import Foundation
 
 final class WeeklyWeatherViewModel: ObservableObject {
-    @Published var city: String = ""
-    @Published var dataSource: [WeeklyWeatherDTO] = []
+    @Published var cityName: String = ""
+    @Published private(set) var dataSource: [WeeklyWeatherDTO] = []
 
     private let weatherFetcher: WeatherFetchable
     private var disposables = Set<AnyCancellable>()
@@ -21,7 +21,7 @@ final class WeeklyWeatherViewModel: ObservableObject {
         scheduler: DispatchQueue = DispatchQueue(label: "WeatherViewModel")
     ) {
         self.weatherFetcher = weatherFetcher
-        $city
+        $cityName
             .dropFirst(1)
             .debounce(for: .seconds(0.5), scheduler: scheduler)
             .sink(receiveValue: fetchWeather(forCity:))

@@ -39,3 +39,11 @@ struct CurrentWeatherView: View {
             .foregroundColor(.gray)
     }
 }
+
+struct CurrentWeatherView_Previews: PreviewProvider {
+    static let previewViewModel = CurrentWeatherViewModel(city: "Stub",
+                                                          weatherFetcher: WeatherNetworkingPreviewHelpers())
+    static var previews: some View {
+        CurrentWeatherView(viewModel: previewViewModel)
+    }
+}

@@ -35,8 +35,8 @@ struct WeatherListView: View {
         NavigationLink(destination: self.viewModel.weeklyWeatherView()) {
             HStack(alignment: .center) {
                 Text("e.g. Search")
-            }                      }
-
+            }
+        }
     }
 
     private var forecastSection: some View {
@@ -58,7 +58,8 @@ struct WeatherListView: View {
 }
 
 struct WeatherListView_Previews: PreviewProvider {
+    static let previewViewModel = WeatherListViewModel(weatherFetcher: WeatherNetworkingPreviewHelpers())
     static var previews: some View {
-        WeatherListView()
+        WeatherListView(viewModel: previewViewModel)
     }
 }
