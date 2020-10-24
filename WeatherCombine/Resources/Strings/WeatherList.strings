@@ -1,0 +1,13 @@
+/* 
+  WeatherList.strings
+  WeatherCombine
+
+  Created by Nischal Hada on 13/10/20.
+  Copyright © 2020 Nischal Hada. All rights reserved.
+*/
+
+"TITLE_ADD_CITY" = "Add City";
+
+"TITLE_SETTINGS" = "Settings";
+"TITLE_SEARCH_CITY" = "Search City";
+"TITLE_CITY_LIST" = "City List";
