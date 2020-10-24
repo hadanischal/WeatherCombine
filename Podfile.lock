@@ -1,0 +1,54 @@
+PODS:
+  - Cuckoo (1.4.1):
+    - Cuckoo/Swift (= 1.4.1)
+  - Cuckoo/Swift (1.4.1)
+  - Nimble (8.1.1)
+  - OHHTTPStubs/Core (9.0.0)
+  - OHHTTPStubs/Default (9.0.0):
+    - OHHTTPStubs/Core
+    - OHHTTPStubs/JSON
+    - OHHTTPStubs/NSURLSession
+    - OHHTTPStubs/OHPathHelpers
+  - OHHTTPStubs/JSON (9.0.0):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/NSURLSession (9.0.0):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/OHPathHelpers (9.0.0)
+  - OHHTTPStubs/Swift (9.0.0):
+    - OHHTTPStubs/Default
+  - Quick (3.0.0)
+  - SwiftFormat/CLI (0.44.17)
+  - SwiftGen (6.2.1)
+  - SwiftLint (0.39.2)
+
+DEPENDENCIES:
+  - Cuckoo (~> 1.4.1)
+  - Nimble (~> 8.1.1)
+  - OHHTTPStubs/Swift
+  - Quick (~> 3.0.0)
+  - SwiftFormat/CLI
+  - SwiftGen (~> 6.0)
+  - SwiftLint
+
+SPEC REPOS:
+  trunk:
+    - Cuckoo
+    - Nimble
+    - OHHTTPStubs
+    - Quick
+    - SwiftFormat
+    - SwiftGen
+    - SwiftLint
+
+SPEC CHECKSUMS:
+  Cuckoo: 4625f7f54d9bb880123270e8969898d6c1d036b5
+  Nimble: 5f8a2fb6fa343a7242dfdd9d42f7267419d464b2
+  OHHTTPStubs: cb29d2a9d09a828ecb93349a2b0c64f99e0db89f
+  Quick: 6d9559f40647bc4d510103842ef2fdd882d753e2
+  SwiftFormat: 3b5caa6389b2b9adbc00e133b3ccc8c6e687a6a4
+  SwiftGen: 62e69d127507be1538d4263e137b2290cd6ab272
+  SwiftLint: 22ccbbe3b8008684be5955693bab135e0ed6a447
+
+PODFILE CHECKSUM: 97542d23b50b2a8952e3664eb7024b248531c52f
+
+COCOAPODS: 1.9.1
