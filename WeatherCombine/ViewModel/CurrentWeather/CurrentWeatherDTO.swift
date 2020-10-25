@@ -10,17 +10,15 @@ import Foundation
 import MapKit
 
 struct CurrentWeatherDTO {
-    let temperature: String
-    let maxTemperature: String
-    let minTemperature: String
-    let humidity: String
-    let coordinate: CLLocationCoordinate2D
+    private let item: CurrentWeatherResponse
+
+    var temperature: String { item.main.temperature.roundSinglePlace }
+    var maxTemperature: String { item.main.maxTemperature.roundSinglePlace }
+    var minTemperature: String { item.main.minTemperature.roundSinglePlace }
+    var humidity: String { item.main.humidity.roundSinglePlace }
+    var coordinate: CLLocationCoordinate2D { CLLocationCoordinate2D(latitude: item.coord.lat, longitude: item.coord.lon) }
 
     init(item: CurrentWeatherResponse) {
-        self.temperature = item.main.temperature.roundSinglePlace
-        self.maxTemperature = item.main.maxTemperature.roundSinglePlace
-        self.minTemperature = item.main.minTemperature.roundSinglePlace
-        self.humidity = item.main.humidity.roundSinglePlace
-        self.coordinate = CLLocationCoordinate2D(latitude: item.coord.lat, longitude: item.coord.lon)
+        self.item = item
     }
 }
