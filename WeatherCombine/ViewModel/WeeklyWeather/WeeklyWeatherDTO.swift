@@ -11,20 +11,18 @@ import Foundation
 // MARK: - WeeklyWeatherDTO
 
 struct WeeklyWeatherDTO: Identifiable {
-    var id: String { day + temperature + title }
-    let day: String
-    let month: String
-    let temperature: String
+    private let weatherResult: WeatherResult
 
-    let title: String
-    let fullDescription: String
+    var id: String { "\(day)-\(temperature)-\(title)" }
+    var day: String { dayFormatter.string(from: weatherResult.date) }
+    var month: String { monthFormatter.string(from: weatherResult.date) }
+    var temperature: String { weatherResult.main.temp.roundSinglePlace }
 
-    init(withWeatherResult item: WeatherResult) {
-        self.day = dayFormatter.string(from: item.date)
-        self.month = monthFormatter.string(from: item.date)
-        self.temperature = item.main.temp.roundSinglePlace
-        self.title = item.weather.first?.main ?? ""
-        self.fullDescription = item.weather.first?.weatherDescription ?? ""
+    var title: String { weatherResult.weather.first?.main ?? "" }
+    var fullDescription: String { weatherResult.weather.first?.weatherDescription ?? "" }
+
+    init(withWeatherResult weatherResult: WeatherResult) {
+        self.weatherResult = weatherResult
     }
 }
 
