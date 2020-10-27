@@ -9,9 +9,14 @@
 import Foundation
 import MapKit
 
-struct CurrentWeatherDTO {
+struct CurrentWeatherDTO: Equatable {
+    static func == (lhs: CurrentWeatherDTO, rhs: CurrentWeatherDTO) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
     private let item: CurrentWeatherResponse
 
+    var id: Int { item.id }
     var temperature: String { item.main.temperature.roundSinglePlace }
     var maxTemperature: String { item.main.maxTemperature.roundSinglePlace }
     var minTemperature: String { item.main.minTemperature.roundSinglePlace }

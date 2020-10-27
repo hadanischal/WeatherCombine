@@ -10,7 +10,7 @@ import Combine
 import Foundation
 
 final class CurrentWeatherViewModel: ObservableObject {
-    @Published var dataSource: CurrentWeatherDTO?
+    @Published private(set) var dataSource: CurrentWeatherDTO?
 
     let city: String
     private let weatherFetcher: WeatherFetchable
