@@ -1,24 +1,14 @@
 //
-//  WeatherCombineTests.swift
+//  WeatherNetworkingTests.swift
 //  WeatherCombineTests
 //
-//  Created by Nischal Hada on 13/9/20.
+//  Created by Nischal Hada on 27/10/20.
 //  Copyright © 2020 Nischal Hada. All rights reserved.
 //
 
 import XCTest
-@testable import WeatherCombine
 
-class WeatherCombineTests: XCTestCase {
-
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
+class WeatherNetworkingTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
