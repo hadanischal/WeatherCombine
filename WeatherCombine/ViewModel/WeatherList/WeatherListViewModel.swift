@@ -10,8 +10,8 @@ import Combine
 import Foundation
 
 final class WeatherListViewModel: ObservableObject {
-    @Published var cityIDs: [String] = OpenWeatherAPI.CityIDs
-    @Published var dataSource: [WeatherListDTO] = []
+    @Published private(set) var cityIDs: [String] = OpenWeatherAPI.CityIDs
+    @Published private(set) var dataSource: [WeatherListDTO] = []
 
     private let weatherFetcher: WeatherListFetchable
     private var disposables = Set<AnyCancellable>()
