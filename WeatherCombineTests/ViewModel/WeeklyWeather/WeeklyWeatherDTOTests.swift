@@ -16,7 +16,7 @@ final class WeeklyWeatherDTOTests: XCTestCase {
 
     override func setUp() {
         guard let model = stubSetup() else {
-            fail("WeatherResult is nik")
+            fail("WeatherResult is nil")
             return
         }
         testViewModel = WeeklyWeatherDTO(withWeatherResult: model)

@@ -11,22 +11,17 @@ import Foundation
 // MARK: - WeatherListDTO
 
 struct WeatherListDTO: Identifiable {
-    let id: String
-    let temperature: String
-    let maxTemperature: String
-    let minTemperature: String
-    let humidity: String
-    let name: String
-//    let coordinate: CLLocationCoordinate2D
+    private let currentWeatherResponse: CurrentWeatherResponse
+    var id: String { "\(currentWeatherResponse.id)" }
+    var temperature: String { currentWeatherResponse.main.temperature.roundSinglePlace }
+    var maxTemperature: String { currentWeatherResponse.main.maxTemperature.roundSinglePlace }
+    var minTemperature: String { currentWeatherResponse.main.minTemperature.roundSinglePlace }
+    var humidity: String { currentWeatherResponse.main.humidity.roundSinglePlace }
+    var name: String { currentWeatherResponse.name }
+//    let coordinate: CLLocationCoordinate2D { CLLocationCoordinate2D(latitude: currentWeatherResponse.coord.lat, longitude: currentWeatherResponse.coord.lon) }
 
-    init(item: CurrentWeatherResponse) {
-        self.id = "\(item.id)"
-        self.temperature = item.main.temperature.roundSinglePlace
-        self.maxTemperature = item.main.maxTemperature.roundSinglePlace
-        self.minTemperature = item.main.minTemperature.roundSinglePlace
-        self.humidity = item.main.humidity.roundSinglePlace
-        self.name = item.name
-//        self.coordinate = CLLocationCoordinate2D(latitude: item.coord.lat, longitude: item.coord.lon)
+    init(currentWeatherResponse: CurrentWeatherResponse) {
+        self.currentWeatherResponse = currentWeatherResponse
     }
 }
 
