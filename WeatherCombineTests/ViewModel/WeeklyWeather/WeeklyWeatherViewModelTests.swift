@@ -131,7 +131,7 @@ final class WeeklyWeatherViewModelTests: XCTestCase {
         )
 
     }
-    // CurrentWeatherResponse
+    // WeeklyWeatherResponse
     private var mockWeeklyWeatherResponse: WeeklyWeatherResponse? {
         return WeathersStubDataSource
             .stubWeeklyWeatherResponse()

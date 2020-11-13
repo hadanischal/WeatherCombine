@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: - WeeklyWeatherResponse
 
-struct WeeklyWeatherResponse: Codable {
+struct WeeklyWeatherResponse: Codable, Equatable {
     let cod: String
     let message, cnt: Int
     let list: [WeatherResult]
@@ -19,7 +19,7 @@ struct WeeklyWeatherResponse: Codable {
 
 // MARK: - City
 
-struct City: Codable {
+struct City: Codable, Equatable {
     let id: Int
     let name: String
     let coord: Coord

@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: - CurrentWeatherResponse
 
-struct CurrentWeatherResponse: Codable {
+struct CurrentWeatherResponse: Codable, Equatable {
     let dt, id: Int
     let main: Main
     let coord: Coord
@@ -28,7 +28,7 @@ struct CurrentWeatherResponse: Codable {
 
 // MARK: - Main
 
-struct Main: Codable {
+struct Main: Codable, Equatable {
     let temperature, feelsLike, maxTemperature, minTemperature: Double
     let pressure, humidity: Int
 
@@ -43,7 +43,7 @@ struct Main: Codable {
 
 // MARK: - Sys
 
-struct Sys1: Codable {
+struct Sys1: Codable, Equatable {
     let type, id: Int?
     let country: String
     let timezone, sunrise, sunset: Int?

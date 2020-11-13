@@ -10,26 +10,26 @@ import Foundation
 
 // MARK: - Coord
 
-struct Coord: Codable {
+struct Coord: Codable, Equatable {
     let lat, lon: Double
 }
 
 // MARK: - Clouds
 
-struct Clouds: Codable {
+struct Clouds: Codable, Equatable {
     let all: Int
 }
 
 // MARK: - Wind
 
-struct Wind: Codable {
+struct Wind: Codable, Equatable {
     let speed: Double
     let deg: Int
 }
 
 // MARK: - Weather
 
-struct Weather: Codable {
+struct Weather: Codable, Equatable {
     let id: Int
     let main: String
     let weatherDescription: String

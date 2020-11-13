@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: - WeatherResult
 
-struct WeatherResult: Codable {
+struct WeatherResult: Codable, Equatable {
     let date: Date
     let main: MainModel
     let weather: [Weather]
@@ -31,7 +31,7 @@ struct WeatherResult: Codable {
 
 // MARK: - MainClass
 
-struct MainModel: Codable {
+struct MainModel: Codable, Equatable {
     let temp, feelsLike, tempMin, tempMax: Double
     let pressure, seaLevel, grndLevel, humidity: Int
     let tempKf: Double
@@ -51,7 +51,7 @@ struct MainModel: Codable {
 
 // MARK: - Rain
 
-struct Rain: Codable {
+struct Rain: Codable, Equatable {
     let the3H: Double
 
     enum CodingKeys: String, CodingKey {
@@ -61,11 +61,11 @@ struct Rain: Codable {
 
 // MARK: - Sys
 
-struct Sys: Codable {
+struct Sys: Codable, Equatable {
     let pod: Pod
 }
 
-enum Pod: String, Codable {
+enum Pod: String, Codable, Equatable {
     case d
     case n
 }
