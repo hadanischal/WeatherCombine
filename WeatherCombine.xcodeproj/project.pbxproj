@@ -15,6 +15,7 @@
 		AF10868025171E0C007407E8 /* WeeklyWeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF10867F25171E0C007407E8 /* WeeklyWeatherResponse.swift */; };
 		AF10868225171EED007407E8 /* CurrentWeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF10868125171EED007407E8 /* CurrentWeatherResponse.swift */; };
 		AF10868425171F78007407E8 /* WeatherNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF10868325171F78007407E8 /* WeatherNetworking.swift */; };
+		AF18330F2560943D00D8751A /* Cancellable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF18330E2560943D00D8751A /* Cancellable+Extensions.swift */; };
 		AF1A78AD2543A75800A46084 /* XCTestCase+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1A78AC2543A75800A46084 /* XCTestCase+Extension.swift */; };
 		AF1A78B62543A97700A46084 /* WeathersStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1A78B52543A97700A46084 /* WeathersStub.swift */; };
 		AF1C3EDC25370B4E0041DDE0 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = AF1C3EDB25370B4D0041DDE0 /* swiftgen.yml */; };
@@ -110,6 +111,7 @@
 		AF10867F25171E0C007407E8 /* WeeklyWeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyWeatherResponse.swift; sourceTree = "<group>"; };
 		AF10868125171EED007407E8 /* CurrentWeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherResponse.swift; sourceTree = "<group>"; };
 		AF10868325171F78007407E8 /* WeatherNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherNetworking.swift; sourceTree = "<group>"; };
+		AF18330E2560943D00D8751A /* Cancellable+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cancellable+Extensions.swift"; sourceTree = "<group>"; };
 		AF1A78AC2543A75800A46084 /* XCTestCase+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Extension.swift"; sourceTree = "<group>"; };
 		AF1A78B52543A97700A46084 /* WeathersStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeathersStub.swift; sourceTree = "<group>"; };
 		AF1C3EDB25370B4D0041DDE0 /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
@@ -379,6 +381,7 @@
 			children = (
 				AF80C70A250F8667008CC45B /* Publisher+Extensions.swift */,
 				AF80C70B250F8667008CC45B /* Scheduler.swift */,
+				AF18330E2560943D00D8751A /* Cancellable+Extensions.swift */,
 			);
 			path = "Combine+Extensions";
 			sourceTree = "<group>";
@@ -898,6 +901,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF18330F2560943D00D8751A /* Cancellable+Extensions.swift in Sources */,
 				AF68A52925196CE000D6341C /* CurrentWeatherDTO.swift in Sources */,
 				AFC84EAF2529C270007F8D5F /* WeatherListView.swift in Sources */,
 				AF480A0B2518CBC500AC4743 /* WeeklyWeatherViewModel.swift in Sources */,

@@ -22,6 +22,8 @@ final class CurrentWeatherViewModel: ObservableObject {
     }
 
     func refresh() {
+        disposables.dispose()
+
         weatherFetcher
             .currentWeatherForecast(forCity: city)
             .map(CurrentWeatherDTO.init)

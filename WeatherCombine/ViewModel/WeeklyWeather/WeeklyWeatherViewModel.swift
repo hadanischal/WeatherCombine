@@ -29,6 +29,8 @@ final class WeeklyWeatherViewModel: ObservableObject {
     }
 
     func fetchWeather(forCity city: String) {
+        disposables.dispose()
+
         weatherFetcher
             .weeklyWeatherForecast(forCity: city)
             .map { response in

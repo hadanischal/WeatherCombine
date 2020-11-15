@@ -27,6 +27,8 @@ final class WeatherListViewModel: ObservableObject {
     }
 
     func fetchWeather(forCities cities: [String]) {
+        disposables.dispose()
+
         weatherFetcher
             .getCurrentWeather(forCities: OpenWeatherAPI.CityIDs)
             .map { response in
