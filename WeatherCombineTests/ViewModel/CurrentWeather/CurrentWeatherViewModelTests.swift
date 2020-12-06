@@ -6,10 +6,10 @@
 //  Copyright © 2020 Nischal Hada. All rights reserved.
 //
 
-import Nimble
-import Cuckoo
-import XCTest
 import Combine
+import Cuckoo
+import Nimble
+import XCTest
 
 @testable import WeatherCombine
 
@@ -20,7 +20,7 @@ final class CurrentWeatherViewModelTests: XCTestCase {
     var subscriptions = Set<AnyCancellable>()
 
     override func setUp() {
-        let mockPublisher: AnyPublisher<CurrentWeatherResponse, NetworkError>  = .fail(.badURL)
+        let mockPublisher: AnyPublisher<CurrentWeatherResponse, NetworkError> = .fail(.badURL)
         weatherFetchable = MockWeatherFetchable()
         stub(weatherFetchable) { stub in
             when(stub.currentWeatherForecast(forCity: any())).thenReturn(mockPublisher)
@@ -41,14 +41,13 @@ final class CurrentWeatherViewModelTests: XCTestCase {
             return
         }
 
-        let mockPublisher: AnyPublisher<CurrentWeatherResponse, NetworkError>  =
+        let mockPublisher: AnyPublisher<CurrentWeatherResponse, NetworkError> =
             Just(model)
-                .mapError({ _ in  NetworkError.unknown })
+                .mapError { _ in NetworkError.unknown }
                 .eraseToAnyPublisher()
         stub(weatherFetchable) { stub in
             when(stub.currentWeatherForecast(forCity: any())).thenReturn(mockPublisher)
         }
-
 
         guard let expected = weatherListDTO else { return }
         var results: CurrentWeatherDTO!
@@ -72,12 +71,11 @@ final class CurrentWeatherViewModelTests: XCTestCase {
             results == expected,
             "Results expected to be \(expected) but were \(results)"
         )
-
     }
 
     func testEmptyResponse() {
         // Given
-        let mockPublisher: AnyPublisher<CurrentWeatherResponse, NetworkError>  = .empty()
+        let mockPublisher: AnyPublisher<CurrentWeatherResponse, NetworkError> = .empty()
          stub(weatherFetchable) { stub in
                 when(stub.currentWeatherForecast(forCity: any())).thenReturn(mockPublisher)
             }
@@ -103,19 +101,17 @@ final class CurrentWeatherViewModelTests: XCTestCase {
             results == expected,
             "Results expected to be \(expected) but were \(results)"
         )
-
     }
 
     func testFailure() {
         // Given
-        let mockPublisher: AnyPublisher<CurrentWeatherResponse, NetworkError>  = .fail(.unknown)
+        let mockPublisher: AnyPublisher<CurrentWeatherResponse, NetworkError> = .fail(.unknown)
         stub(weatherFetchable) { stub in
             when(stub.currentWeatherForecast(forCity: any())).thenReturn(mockPublisher)
         }
 
         let expected: CurrentWeatherDTO? = nil
         var results: CurrentWeatherDTO?
-
 
         // When
         testViewModel.refresh()
@@ -135,8 +131,8 @@ final class CurrentWeatherViewModelTests: XCTestCase {
             results == expected,
             "Results expected to be \(expected) but were \(results)"
         )
-
     }
+
     // CurrentWeatherResponse
     private var mockCurrentWeatherResponse: CurrentWeatherResponse? {
         return WeathersStubDataSource
@@ -147,5 +143,4 @@ final class CurrentWeatherViewModelTests: XCTestCase {
         return mockCurrentWeatherResponse
             .map(CurrentWeatherDTO.init)
     }
-
 }

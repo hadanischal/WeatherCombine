@@ -44,5 +44,3 @@ extension DateFormatter {
         return dateFormatter
     }()
 }
-
-

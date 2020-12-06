@@ -6,11 +6,11 @@
 //  Copyright © 2020 Nischal Hada. All rights reserved.
 //
 
-import Nimble
-import Cuckoo
-import XCTest
 import Combine
+import Cuckoo
+import Nimble
 @testable import WeatherCombine
+import XCTest
 
 final class WeatherNetworkingTests: XCTestCase {
     private var testViewModel: WeatherNetworking!
@@ -19,7 +19,7 @@ final class WeatherNetworkingTests: XCTestCase {
     var subscriptions = Set<AnyCancellable>()
 
     override func setUp() {
-        let mockPublisher: AnyPublisher<CurrentWeatherResponse, NetworkError>  = .fail(.badURL)
+        let mockPublisher: AnyPublisher<CurrentWeatherResponse, NetworkError> = .fail(.badURL)
         weatherFetchable = MockNetworkServiceHandling()
         stub(weatherFetchable) { stub in
             when(stub.load(any())).thenReturn(mockPublisher)
@@ -36,9 +36,9 @@ final class WeatherNetworkingTests: XCTestCase {
         let expectation = self.expectation(description: #function)
         let expected = mockWeeklyWeatherResponse
 
-        let mockPublisher: AnyPublisher<WeeklyWeatherResponse, NetworkError>  =
+        let mockPublisher: AnyPublisher<WeeklyWeatherResponse, NetworkError> =
             Just(expected)
-                .mapError({ _ in  NetworkError.unknown })
+                .mapError { _ in NetworkError.unknown }
                 .eraseToAnyPublisher()
 
         stub(weatherFetchable) { stub in
@@ -52,7 +52,7 @@ final class WeatherNetworkingTests: XCTestCase {
             .sink(
                 receiveCompletion: { _ in expectation.fulfill() },
                 receiveValue: { results = $0 }
-        )
+            )
             .store(in: &subscriptions)
 
         // Then
@@ -67,13 +67,12 @@ final class WeatherNetworkingTests: XCTestCase {
         } else {
             XCTFail("result is null")
         }
-
     }
 
     func testWeeklyWeatherForecastFailure() {
         // Given
         let expectation = self.expectation(description: #function)
-        let mockPublisher: AnyPublisher<WeeklyWeatherResponse, NetworkError>  = .fail(.unknown)
+        let mockPublisher: AnyPublisher<WeeklyWeatherResponse, NetworkError> = .fail(.unknown)
         stub(weatherFetchable) { stub in
             when(stub.load(any())).thenReturn(mockPublisher)
         }
@@ -85,7 +84,7 @@ final class WeatherNetworkingTests: XCTestCase {
             .sink(
                 receiveCompletion: { _ in expectation.fulfill() },
                 receiveValue: { results = $0 }
-        )
+            )
             .store(in: &subscriptions)
 
         // Then
@@ -98,9 +97,9 @@ final class WeatherNetworkingTests: XCTestCase {
         let expectation = self.expectation(description: #function)
         let expected = mockCurrentWeatherResponse
 
-        let mockPublisher: AnyPublisher<CurrentWeatherResponse, NetworkError>  =
+        let mockPublisher: AnyPublisher<CurrentWeatherResponse, NetworkError> =
             Just(expected)
-                .mapError({ _ in  NetworkError.unknown })
+                .mapError { _ in NetworkError.unknown }
                 .eraseToAnyPublisher()
 
         stub(weatherFetchable) { stub in
@@ -114,7 +113,7 @@ final class WeatherNetworkingTests: XCTestCase {
             .sink(
                 receiveCompletion: { _ in expectation.fulfill() },
                 receiveValue: { results = $0 }
-        )
+            )
             .store(in: &subscriptions)
 
         // Then
@@ -129,13 +128,12 @@ final class WeatherNetworkingTests: XCTestCase {
         } else {
             XCTFail("result is null")
         }
-
     }
 
     func testCurrentWeatherForecastFailure() {
         // Given
         let expectation = self.expectation(description: #function)
-        let mockPublisher: AnyPublisher<CurrentWeatherResponse, NetworkError>  = .fail(.unknown)
+        let mockPublisher: AnyPublisher<CurrentWeatherResponse, NetworkError> = .fail(.unknown)
         stub(weatherFetchable) { stub in
             when(stub.load(any())).thenReturn(mockPublisher)
         }
@@ -147,7 +145,7 @@ final class WeatherNetworkingTests: XCTestCase {
             .sink(
                 receiveCompletion: { _ in expectation.fulfill() },
                 receiveValue: { results = $0 }
-        )
+            )
             .store(in: &subscriptions)
 
         // Then
@@ -155,15 +153,14 @@ final class WeatherNetworkingTests: XCTestCase {
         XCTAssertNil(results)
     }
 
-
     func testGetCurrentWeatherSuccess() {
         // Given
         let expectation = self.expectation(description: #function)
         let expected = mockCityWeatherListResponse
 
-        let mockPublisher: AnyPublisher<CityWeatherListResponse, NetworkError>  =
+        let mockPublisher: AnyPublisher<CityWeatherListResponse, NetworkError> =
             Just(expected)
-                .mapError({ _ in  NetworkError.unknown })
+                .mapError { _ in NetworkError.unknown }
                 .eraseToAnyPublisher()
 
         stub(weatherFetchable) { stub in
@@ -177,7 +174,7 @@ final class WeatherNetworkingTests: XCTestCase {
             .sink(
                 receiveCompletion: { _ in expectation.fulfill() },
                 receiveValue: { results = $0 }
-        )
+            )
             .store(in: &subscriptions)
 
         // Then
@@ -192,13 +189,12 @@ final class WeatherNetworkingTests: XCTestCase {
         } else {
             XCTFail("result is null")
         }
-
     }
 
     func testGetCurrentWeatherFailure() {
         // Given
         let expectation = self.expectation(description: #function)
-        let mockPublisher: AnyPublisher<CityWeatherListResponse, NetworkError>  = .fail(.unknown)
+        let mockPublisher: AnyPublisher<CityWeatherListResponse, NetworkError> = .fail(.unknown)
         stub(weatherFetchable) { stub in
             when(stub.load(any())).thenReturn(mockPublisher)
         }
@@ -209,13 +205,12 @@ final class WeatherNetworkingTests: XCTestCase {
             .sink(
                 receiveCompletion: { _ in expectation.fulfill() },
                 receiveValue: { results = $0 }
-        )
+            )
             .store(in: &subscriptions)
 
         // Then
         waitForExpectations(timeout: 2, handler: nil)
         XCTAssertNil(results)
-
     }
 
     // WeeklyWeatherResponse

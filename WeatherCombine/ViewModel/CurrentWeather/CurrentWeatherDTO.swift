@@ -13,7 +13,7 @@ struct CurrentWeatherDTO: Equatable {
     static func == (lhs: CurrentWeatherDTO, rhs: CurrentWeatherDTO) -> Bool {
         return lhs.id == rhs.id
     }
-    
+
     private let item: CurrentWeatherResponse
 
     var id: Int { item.id }

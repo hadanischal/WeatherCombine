@@ -6,10 +6,10 @@
 //  Copyright © 2020 Nischal Hada. All rights reserved.
 //
 
-import Nimble
-import Cuckoo
-import XCTest
 import Combine
+import Cuckoo
+import Nimble
+import XCTest
 
 @testable import WeatherCombine
 
@@ -20,10 +20,9 @@ final class WeeklyWeatherViewModelTests: XCTestCase {
     var subscriptions = Set<AnyCancellable>()
 
     override func setUp() {
-
         guard let model = mockWeeklyWeatherResponse else { return }
-        let mockPublisher: AnyPublisher<WeeklyWeatherResponse, NetworkError>  = Just(model)
-            .mapError({ _ in  NetworkError.unknown })
+        let mockPublisher: AnyPublisher<WeeklyWeatherResponse, NetworkError> = Just(model)
+            .mapError { _ in NetworkError.unknown }
             .eraseToAnyPublisher()
         expect(model.list.count).to(equal(40))
         weatherFetchable = MockWeatherFetchable()
@@ -63,12 +62,11 @@ final class WeeklyWeatherViewModelTests: XCTestCase {
             results == expected,
             "Results expected to be \(expected) but were \(results)"
         )
-
     }
 
     func testEmptyResponse() {
         // Given
-        let mockPublisher: AnyPublisher<WeeklyWeatherResponse, NetworkError>  = .empty()
+        let mockPublisher: AnyPublisher<WeeklyWeatherResponse, NetworkError> = .empty()
         stub(weatherFetchable) { stub in
             when(stub.weeklyWeatherForecast(forCity: any())).thenReturn(mockPublisher)
         }
@@ -96,12 +94,11 @@ final class WeeklyWeatherViewModelTests: XCTestCase {
             results == expected,
             "Results expected to be \(expected) but were \(results)"
         )
-
     }
 
     func testFailure() {
         // Given
-        let mockPublisher: AnyPublisher<WeeklyWeatherResponse, NetworkError>  = .fail(NetworkError.unknown)
+        let mockPublisher: AnyPublisher<WeeklyWeatherResponse, NetworkError> = .fail(NetworkError.unknown)
         stub(weatherFetchable) { stub in
             when(stub.weeklyWeatherForecast(forCity: any())).thenReturn(mockPublisher)
         }
@@ -129,8 +126,8 @@ final class WeeklyWeatherViewModelTests: XCTestCase {
             results == expected,
             "Results expected to be \(expected) but were \(results)"
         )
-
     }
+
     // WeeklyWeatherResponse
     private var mockWeeklyWeatherResponse: WeeklyWeatherResponse? {
         return WeathersStubDataSource
@@ -142,7 +139,5 @@ final class WeeklyWeatherViewModelTests: XCTestCase {
             .list
             .map(WeeklyWeatherDTO.init)
             .removingDuplicates() ?? []
-
     }
-
 }
