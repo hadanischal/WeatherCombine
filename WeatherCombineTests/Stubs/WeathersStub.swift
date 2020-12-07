@@ -38,8 +38,11 @@ extension WeathersStub {
 
 struct WeathersStubDataSource {
     static func stubWeeklyWeatherResponse() -> WeeklyWeatherResponse? {
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .secondsSince1970
+
         if let data = WeathersStub.weeklyWeather.data,
-            let response = try? JSONDecoder().decode(WeeklyWeatherResponse.self, from: data) {
+            let response = try? decoder.decode(WeeklyWeatherResponse.self, from: data) {
             return response
         } else {
             XCTFail("Unable to parse WeeklyWeatherResponse results")

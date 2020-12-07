@@ -25,8 +25,8 @@ final class WeeklyWeatherDTOTests: XCTestCase {
     override func tearDown() {}
 
     func testExample() {
-        expect(self.testViewModel.id).to(equal("08-18.6-Clouds"))
-        expect(self.testViewModel.day).to(equal("08"))
+        expect(self.testViewModel.id).to(equal("07-18.6-Clouds"))
+        expect(self.testViewModel.day).to(equal("07"))
         expect(self.testViewModel.month).to(equal("October"))
         expect(self.testViewModel.temperature).to(equal("18.6"))
         expect(self.testViewModel.title).to(equal("Clouds"))
