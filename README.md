@@ -1,21 +1,21 @@
 # WeatherCombine
 ## Requirements:
-* iOS 13.0+
-* Xcode 11.3.1
+* iOS 13.7+
+* Xcode 11.7
 * Swift 5.0
 
 ## Compatibility
-This demo is expected to be run using Swift 5.0 and Xcode 11.3.1
+This demo is expected to be run using Swift 5.0 and Xcode 11.7
 
 ## Objective:
-This is a simple Demo project which aims to display weather information using MVVM pattern in Swift. A fun app made with to demonstrate some examples of **clean architecture**, **SOLID principles** code organisation, loose coupling, **unit testing** and some of the best practices used in modern iOS programming using `Swift`.
+This is a simple Demo project which aims to display weather information using MVVM pattern in Swift. A fun app made with to demonstrate some examples of **clean architecture**, **SOLID principles** code organisation, loose coupling, **unit testing** and some of the best practices used in modern iOS programming using `Swift`, `SwiftUI`, `Combine`.
 
 ## App Goal:
  - This project was intended to work as a  weather information demo projects for iOS using Swift.
 
 ## Implementation:
  - The demo uses the [Openweathermap API](http://api.openweathermap.org) as an excuse to have a nice use-case, because querying a WebService API is asynchronous by nature and is thus a good example for showing how It can be useful .
- - Use a UITableViewController to display weather information of Sydney, Melbourne and Brisbane as start.
+ - Use a List View to display weather information of Sydney, Melbourne and Brisbane as start.
  - Provide a way to add more cities using another modal view controller which includes a search functionality to find a city by name or location.
  - City IDs:
     - Sydney, Melbourne and Brisbane are: 4163971, 2147714, 2174003
@@ -28,17 +28,16 @@ This is a simple Demo project which aims to display weather information using MV
 
 ## Installation
 
-- Xcode **11.3**(required)
+- Xcode **11.7**(required)
 - Clean `/DerivedData` folder if any
 - Run the pod install `pod install`
 - Then clean and build the project in Xcode
 
 ## 3rd Party Libraries
- - **`RxSwift`** - to make `Reactive` binding of API call and response
  - **`SwiftLint`** - A tool to enforce Swift style and conventions. 
  - **`SwiftGen`** - swift code generator for your assets, storyboards, Localizable.strings. 
- - **`SwiftRichString`** - Elegant, easy and swift-like way to create Attributed Strings
- - **`PKHUD`** - Swift based reimplementation of the Apple HUD
+ - **`SwiftFormat`** - A command-line tool and Xcode Extension for formatting Swift code
+ - **`OHHTTPStubs/Swift`** - Stub your network requests easily! Test your apps with fake network data and custom response time, response code and headers!
  - **`Quick`** - to unit test as much as possible
  - **`Nimble`** - to pair with Quick
  - **`Cuckoo`** - Tasty mocking framework for unit tests in swift
@@ -58,5 +57,5 @@ MVVM stands for Model,View,ViewModel in which controllers, views and animations 
  
 #### App Demo
 
- ![](/README/WeatherRxSwift.gif "")
+ ![](/README/demo.gif "")
 

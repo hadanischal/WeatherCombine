@@ -78,8 +78,6 @@ final class NetworkServiceTests: XCTestCase {
         testViewModel.load(resource)
             .sink(
                 receiveCompletion: { value in
-
-                    print("value \(value)")
                     switch value {
                     case let .failure(error):
                         expect(error.localizedDescription).toNot(beNil())
