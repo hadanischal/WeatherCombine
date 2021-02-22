@@ -32,10 +32,8 @@ final class WeatherNetworking: WeatherNetworkHandler {
             return Fail(error: NetworkError.badURL).eraseToAnyPublisher()
         }
 
-        var components = OpenWeatherAPI.components
-        components.updateValue(city, forKey: "q")
-
-        let res: Resource<WeeklyWeatherResponse> = { Resource(url: url, parameter: components) }()
+        let request = WeatherRequest(city: city)
+        let res: Resource<WeeklyWeatherResponse> = { Resource(url: url, parameter: request.parameter) }()
         return networkService.load(res)
     }
 
@@ -44,10 +42,8 @@ final class WeatherNetworking: WeatherNetworkHandler {
             return Fail(error: NetworkError.badURL).eraseToAnyPublisher()
         }
 
-        var components = OpenWeatherAPI.components
-        components.updateValue(city, forKey: "q")
-
-        let res: Resource<CurrentWeatherResponse> = { Resource(url: url, parameter: components) }()
+        let request = WeatherRequest(city: city)
+        let res: Resource<CurrentWeatherResponse> = { Resource(url: url, parameter: request.parameter) }()
         return networkService.load(res)
     }
 
@@ -56,22 +52,11 @@ final class WeatherNetworking: WeatherNetworkHandler {
             return Fail(error: NetworkError.badURL).eraseToAnyPublisher()
         }
 
-        let components = self.buildQueryParams(withCityIds: cityIds)
-
-        let res: Resource<CityWeatherListResponse> = { Resource(url: url, parameter: components) }()
+        let request = WeatherRequest(id: cityIds.joined(separator: ","))
+        let res: Resource<CityWeatherListResponse> = { Resource(url: url, parameter: request.parameter) }()
         return networkService
             .load(res)
             .compactMap { $0.weatherList }
             .eraseToAnyPublisher()
-    }
-
-    // MARK: - Private Helpers
-
-    private func buildQueryParams(withCityIds cityIds: [String]) -> [String: String] {
-        return [
-            "id": cityIds.joined(separator: ","),
-            "units": OpenWeatherAPI.ApiConfig.weatherUnit,
-            "APPID": OpenWeatherAPI.ApiConfig.apiKey
-        ]
     }
 }

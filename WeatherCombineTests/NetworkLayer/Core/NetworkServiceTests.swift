@@ -29,7 +29,8 @@ final class NetworkServiceTests: XCTestCase {
         // Given
         let expectation = self.expectation(description: #function)
         guard let url = URL.forecastUrl else { return }
-        let resource: Resource<WeeklyWeatherResponse> = { Resource(url: url, parameter: OpenWeatherAPI.components) }()
+        let request = WeatherRequest()
+        let resource: Resource<WeeklyWeatherResponse> = { Resource(url: url, parameter: request.parameter) }()
 
         stub(condition: isHost(OpenWeatherAPI.ApiConfig.host)) { _ in
             let stubPath = OHPathForFile("weeklyWeather.json", type(of: self))
@@ -65,7 +66,8 @@ final class NetworkServiceTests: XCTestCase {
         // Given
         let expectation = self.expectation(description: #function)
         guard let url = URL.forecastUrl else { return }
-        let resource: Resource<WeeklyWeatherResponse> = { Resource(url: url, parameter: OpenWeatherAPI.components) }()
+        let request = WeatherRequest()
+        let resource: Resource<WeeklyWeatherResponse> = { Resource(url: url, parameter: request.parameter) }()
 
         stub(condition: isHost(OpenWeatherAPI.ApiConfig.host)) { _ in
             let stubPath = OHPathForFile("error401.json", type(of: self))

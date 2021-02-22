@@ -21,8 +21,6 @@ struct OpenWeatherAPI {
         static let serverPath: String = baseURL + path
         static let baseURL = "https://api.openweathermap.org/"
         static let path = "data/2.5/"
-
-        static let apiKey: String = "7d504cbcfe2698bf9c66ab2fd1602452"
         static let weatherUnit: String = "metric"
 
         static let pathForecast = "forecast"
@@ -31,13 +29,6 @@ struct OpenWeatherAPI {
     }
 
     /// https://api.openweathermap.org/data/2.5/forecast?q=Sydney&units=metric&APPID=7d504cbcfe2698bf9c66ab2fd1602452&mode=json
-    static let components: [String: String] = {
-        [
-            "mode": "json",
-            "units": "metric",
-            "APPID": ApiConfig.apiKey
-        ]
-    }()
 
     /// API Documentation: http://api.openweathermap.org/data/2.5/group?id=524901,703448,2643743&units=metric
     /// The list Ids of capital cities in Australia as per provided by Open Weather Map API
