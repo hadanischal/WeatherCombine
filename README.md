@@ -32,6 +32,15 @@ This is a simple Demo project which aims to display weather information using MV
 - Clean `/DerivedData` folder if any
 - Run the pod install `pod install`
 - Then clean and build the project in Xcode
+- Add missing Configuration.swift file with YOUR_API_KEY
+  * Configuration.swift 
+```swift
+import Foundation
+
+struct Configuration: BaseConfiguration {
+    var apiKey: String { "YOUR_API_KEY" }
+}
+```
 
 ## 3rd Party Libraries
  - **`SwiftLint`** - A tool to enforce Swift style and conventions. 
